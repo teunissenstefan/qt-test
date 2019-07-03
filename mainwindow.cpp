@@ -4,6 +4,8 @@
 #include "json.hpp"
 #include "curl/curl.h"
 #include "sstream"
+#include "functions.h"
+#include "qstring.h"
 
 using json = nlohmann::json;
 
@@ -53,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->inputGebruikersnaam->setFocus();
 
     j2 = json::parse(DownloadJSON("https://opendata.cbs.nl/ODataApi/odata/83958NED/TypedDataSet").c_str());
-    qDebug() << j2["value"][0]["Woonplaatsen"].dump().c_str();
+    qDebug() << functions::RemoveChars(j2["value"][0]["Naam_2"].dump().c_str(),"\" ").c_str();
 }
 
 MainWindow::~MainWindow()
@@ -63,17 +65,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnWeetIk_clicked()
 {
-//    if(ui->inputGebruikersnaam->text()=="pizza"&&ui->inputWachtwoord->text()=="koerier"){
-    // "WP1925" met quotes?
-    if(ui->inputGebruikersnaam->text()==j2["value"][0]["Woonplaatsen"].dump().c_str()&&ui->inputWachtwoord->text()=="koerier"){
-//        QMessageBox::question(this, "Gefeliciteerd", "Je bent ingelogd", QMessageBox::Ok);
+    std::string username = j2["value"][0]["Naam_2"].dump().c_str();
+    //if(ui->inputGebruikersnaam->text() == username.c_str() && ui->inputWachtwoord->text()=="koerier"){ //werkt
+    if(ui->inputGebruikersnaam->text() == functions::RemoveChars(username,"\" ").c_str() && ui->inputWachtwoord->text() == "koerier"){
         CenterWindow *cw = new CenterWindow();
         cw->show();
         this->close();
     }else{
         ui->inputWachtwoord->setText("");
         ui->inputGebruikersnaam->setText("");
-        QMessageBox::warning(this, "Helaas", "Inloggen kon niet gebeurden wwwwworden", QMessageBox::Ok);
+        QMessageBox::warning(this, "Helaas", "Inloggen kan niet :'(", QMessageBox::Ok);
         ui->inputGebruikersnaam->setFocus();
     }
 }

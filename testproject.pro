@@ -29,11 +29,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    centerwindow.cpp
+    centerwindow.cpp \
+    functions.cpp
 
 HEADERS += \
         mainwindow.h \
-    centerwindow.h
+    centerwindow.h \
+    functions.h
 
 FORMS += \
         mainwindow.ui \
