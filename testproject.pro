@@ -30,16 +30,19 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     centerwindow.cpp \
-    functions.cpp
+    functions.cpp \
+    aboutwindow.cpp
 
 HEADERS += \
         mainwindow.h \
     centerwindow.h \
-    functions.h
+    functions.h \
+    aboutwindow.h
 
 FORMS += \
         mainwindow.ui \
-    centerwindow.ui
+    centerwindow.ui \
+    aboutwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

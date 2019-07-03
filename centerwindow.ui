@@ -77,7 +77,14 @@
     <addaction name="separator"/>
     <addaction name="actionAfsluiten"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>He&amp;lp</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuBestand"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAfsluiten">
@@ -110,6 +117,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
    </property>
   </action>
  </widget>

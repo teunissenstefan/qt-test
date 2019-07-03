@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
+#include <aboutwindow.h>
 
 namespace Ui {
 class CenterWindow;
@@ -42,10 +43,13 @@ private slots:
 
     void on_actionOpslaan_Als_triggered();
 
+    void on_actionAbout_triggered();
+
 private:
     Ui::CenterWindow *ui;
     bool saved;
     QString hasFile;
+    AboutWindow *aw = nullptr;
 };
 
 #endif // CENTERWINDOW_H

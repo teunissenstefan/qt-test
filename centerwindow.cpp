@@ -122,3 +122,13 @@ void CenterWindow::on_actionOpslaan_Als_triggered()
 {
     SaveAsFunction();
 }
+
+void CenterWindow::on_actionAbout_triggered()
+{
+    if(aw==nullptr){
+        aw = new AboutWindow();
+        aw->show();
+    }else{
+        QApplication::setActiveWindow(aw);
+    }
+}
