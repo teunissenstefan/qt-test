@@ -15,7 +15,3 @@ std::string functions::RemoveChars(const std::string& source, const std::string&
    }
    return result;
 }
-
-std::string functions::Test(){
-    return "help";
-}
