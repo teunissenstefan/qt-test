@@ -7,6 +7,7 @@ CenterWindow::CenterWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     saved = true;
+    hasFile = "";
 }
 
 CenterWindow::~CenterWindow()
@@ -64,11 +65,11 @@ void CenterWindow::LoadFunction(){
         }
         f.close();
         saved = true;
+        hasFile = filename;
     }
 }
 
-void CenterWindow::SaveFunction(){
-    QString filename = QFileDialog::getSaveFileName();
+void CenterWindow::saveFile(QString filename){
     QFile f( filename );
     if(f.open( QIODevice::WriteOnly )){
         for(int i = 0; i<ui->itemsList->count(); i++){
@@ -81,7 +82,21 @@ void CenterWindow::SaveFunction(){
         }
         f.close();
         saved = true;
+        hasFile = filename;
     }
+}
+
+void CenterWindow::SaveAsFunction(){
+    QString filename = QFileDialog::getSaveFileName();
+    saveFile(filename);
+}
+
+void CenterWindow::SaveFunction(){
+    QString filename = hasFile;
+    if(filename==""){
+        filename = QFileDialog::getSaveFileName();
+    }
+    saveFile(filename);
 }
 
 void CenterWindow::on_actionOpslaan_triggered()
@@ -101,4 +116,9 @@ void CenterWindow::on_actionOpenen_triggered()
     }else{
         LoadFunction();
     }
+}
+
+void CenterWindow::on_actionOpslaan_Als_triggered()
+{
+    SaveAsFunction();
 }

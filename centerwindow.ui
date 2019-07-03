@@ -70,8 +70,10 @@
     <property name="title">
      <string>Besta&amp;nd</string>
     </property>
-    <addaction name="actionOpslaan"/>
     <addaction name="actionOpenen"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpslaan"/>
+    <addaction name="actionOpslaan_Als"/>
     <addaction name="separator"/>
     <addaction name="actionAfsluiten"/>
    </widget>
@@ -88,7 +90,7 @@
   </action>
   <action name="actionOpslaan">
    <property name="text">
-    <string>Opslaan</string>
+    <string>&amp;Opslaan</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -96,10 +98,18 @@
   </action>
   <action name="actionOpenen">
    <property name="text">
-    <string>Openen</string>
+    <string>O&amp;penen</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionOpslaan_Als">
+   <property name="text">
+    <string>Op&amp;slaan Als...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
    </property>
   </action>
  </widget>

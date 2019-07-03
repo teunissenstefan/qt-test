@@ -32,13 +32,20 @@ private slots:
 
     void on_actionOpenen_triggered();
 
+    void saveFile(QString filename);
+
     void SaveFunction();
 
+    void SaveAsFunction();
+
     void LoadFunction();
+
+    void on_actionOpslaan_Als_triggered();
 
 private:
     Ui::CenterWindow *ui;
     bool saved;
+    QString hasFile;
 };
 
 #endif // CENTERWINDOW_H
